@@ -11,21 +11,19 @@ extends CharacterBody3D
 @export var crouch_height: float = 1.0
 @export var standing_height: float = 2.0
 
-# Onready variables
-@onready var head: Node3D = $Head
-@onready var camera: Camera3D = $Head/Camera3D
-@onready var collision_shape: CollisionShape3D = $CollisionShape3D
-
 # Regular variables
 var camera_x_rotation: float = 0.0
 var current_speed: float = walk_speed
 var is_crouching: bool = false
 
+# Onready variables
+@onready var head: Node3D = $Head
+@onready var camera: Camera3D = $Head/Camera3D
+@onready var collision_shape: CollisionShape3D = $CollisionShape3D
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	standing_height = collision_shape.shape.height
-
 
 func _input(event):
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -36,7 +34,6 @@ func _input(event):
 		var x_delta = event.relative.y * mouse_sensitivity
 		camera_x_rotation = clamp(camera_x_rotation + x_delta, -90.0, 90.0)
 		camera.rotation_degrees.x = -camera_x_rotation
-
 
 func _physics_process(delta):
 	var movement_vector = Vector3.ZERO
@@ -69,7 +66,6 @@ func _physics_process(delta):
 		velocity.y = jump_power
 
 	move_and_slide()
-
 
 func handle_crouch():
 	# Toggle crouch state
