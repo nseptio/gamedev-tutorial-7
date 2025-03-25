@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://41n1m3et4j7v"]
+
+[ext_resource type="Script" uid="uid://b2auqvmov6npn" path="res://scenes/area_trigger.gd" id="1_iuiid"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lw13x"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_iuiid"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ocr2"]
+albedo_color = Color(0.388235, 0.741176, 0.878431, 1)
+
+[node name="AreaTrigger" type="Area3D"]
+script = ExtResource("1_iuiid")
+scene_name = "WinScreen"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_lw13x")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+mesh = SubResource("SphereMesh_iuiid")
+material = SubResource("StandardMaterial3D_7ocr2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://btipwfglk7vve"]
+
+[ext_resource type="PackedScene" uid="uid://djp0lw02v1i6t" path="res://scenes/Player.tscn" id="1_6ovph"]
+[ext_resource type="PackedScene" uid="uid://cnddxintd7x8d" path="res://scenes/World1.tscn" id="1_bwv4p"]
+[ext_resource type="PackedScene" uid="uid://41n1m3et4j7v" path="res://scenes/AreaTrigger.tscn" id="3_odhdn"]
+[ext_resource type="PackedScene" uid="uid://70dlt4mpv411" path="res://scenes/BoxTrigger.tscn" id="4_dw26h"]
+
+[node name="Level1" type="Node3D"]
+
+[node name="World1" parent="." instance=ExtResource("1_bwv4p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00889933, -0.0757641, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_6ovph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.08846, 2.57522)
+
+[node name="ObjectiveTrigger" parent="." instance=ExtResource("3_odhdn")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -2.78914, -91.5727)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.00042, -91.6982)
+
+[node name="BlockTrigger" parent="." instance=ExtResource("4_dw26h")]
+transform = Transform3D(33, 0, 0, 0, 33, 0, 0, 0, 33, 0.477028, -33.0723, -32.6567)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.96002, -94.6721)

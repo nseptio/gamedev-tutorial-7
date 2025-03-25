@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://70dlt4mpv411"]
+
+[ext_resource type="Script" uid="uid://b2auqvmov6npn" path="res://scenes/area_trigger.gd" id="1_r0eht"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r0eht"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bxh2d"]
+
+[node name="BlockTrigger" type="Area3D"]
+script = ExtResource("1_r0eht")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_r0eht")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+mesh = SubResource("BoxMesh_bxh2d")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
