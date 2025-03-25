@@ -21,9 +21,11 @@ var is_crouching: bool = false
 @onready var camera: Camera3D = $Head/Camera3D
 @onready var collision_shape: CollisionShape3D = $CollisionShape3D
 
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	standing_height = collision_shape.shape.height
+
 
 func _input(event):
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -34,6 +36,7 @@ func _input(event):
 		var x_delta = event.relative.y * mouse_sensitivity
 		camera_x_rotation = clamp(camera_x_rotation + x_delta, -90.0, 90.0)
 		camera.rotation_degrees.x = -camera_x_rotation
+
 
 func _physics_process(delta):
 	var movement_vector = Vector3.ZERO
@@ -66,6 +69,7 @@ func _physics_process(delta):
 		velocity.y = jump_power
 
 	move_and_slide()
+
 
 func handle_crouch():
 	# Toggle crouch state

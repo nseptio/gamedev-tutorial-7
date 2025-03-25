@@ -2,8 +2,10 @@ extends RayCast3D
 
 var current_collider
 
+
 func _ready():
 	pass
+
 
 func _process(_delta):
 	var collider = get_collider()
